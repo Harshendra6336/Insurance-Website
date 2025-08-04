@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Thompson Insurance - Your Trusted Independent Insurance Advisor</title>
+    <meta name="description" content="Professional independent insurance advisor offering personalized insurance solutions for individuals and businesses. Get expert guidance on auto, home, life, and business insurance.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fff, #e3f2fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/><circle fill="%23e3f2fd" cx="200" cy="150" r="80" opacity="0.3"/><circle fill="%23bbdefb" cx="800" cy="300" r="120" opacity="0.2"/><circle fill="%2390caf9" cx="1000" cy="100" r="60" opacity="0.4"/></svg>');
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3c72;
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .credential {
+            background: linear-gradient(45deg, #e3f2fd, #bbdefb);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            color: #1e3c72;
+            font-size: 0.9rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1e3c72;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .contact-info {
+            padding: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #e3f2fd;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #b3d9ff;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b3d9ff;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Live Chat Button */
+        .live-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .live-chat:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Privacy Notice */
+        .privacy-notice {
+            background: #e8f4fd;
+            border-left: 4px solid #1e3c72;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Sarah Thompson Insurance</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Your Trusted Insurance Partner</h1>
+            <p>Independent insurance advisor with 15+ years of experience helping individuals and businesses find the perfect coverage at the best rates.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get Free Quote</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Insurance Services</h2>
+                <p>Comprehensive coverage solutions tailored to your unique needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚗</div>
+                    <h3>Auto Insurance</h3>
+                    <p>Comprehensive auto coverage with competitive rates. Full coverage, liability, collision, and comprehensive options available. Get quotes from multiple carriers to find your best rate.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Home Insurance</h3>
+                    <p>Protect your most valuable asset with comprehensive homeowners insurance. Coverage for structure, personal property, liability, and additional living expenses.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Business Insurance</h3>
+                    <p>Complete business protection including general liability, property, workers' compensation, and professional liability insurance tailored to your industry.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Life Insurance</h3>
+                    <p>Secure your family's financial future with term life, whole life, and universal life insurance options. Professional needs analysis included.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <h3>Health Insurance</h3>
+                    <p>Individual and group health insurance plans. ACA marketplace navigation, Medicare supplements, and employer group plans available.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☂️</div>
+                    <h3>Umbrella Coverage</h3>
+                    <p>Additional liability protection beyond your standard policies. Protect your assets with affordable umbrella insurance coverage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Meet Sarah Thompson</h2>
+                    <p>With over 15 years in the insurance industry, I'm dedicated to helping individuals and businesses find the right coverage at the best possible rates. As an independent agent, I work with multiple top-rated insurance carriers to ensure you get the most competitive options.</p>
+                    <p>My approach is simple: listen to your needs, explain your options in plain English, and provide ongoing support when you need it most. I believe insurance shouldn't be complicated or confusing.</p>
+                    <p>When you work with me, you're not just getting insurance – you're getting a trusted advisor who will be there for you through every claim and life change.</p>
+                    <div class="credentials">
+                        <span class="credential">Licensed Insurance Agent</span>
+                        <span class="credential">CPCU Certified</span>
+                        <span class="credential">CIC Designation</span>
+                        <span class="credential">15+ Years Experience</span>
+                        <span class="credential">Multi-State Licensed</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'><rect fill='%23f8f9fa' width='400' height='500'/><circle fill='%231e3c72' cx='200' cy='150' r='80'/><rect fill='%232a5298' x='120' y='230' width='160' height='200' rx='10'/><text x='200' y='160' text-anchor='middle' fill='white' font-size='24' font-family='Arial'>ST</text><text x='200' y='450' text-anchor='middle' fill='%23666' font-size='16' font-family='Arial'>Professional Headshot</text></svg>" alt="Sarah Thompson - Insurance Advisor">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">What Our Clients Say</h2>
+                <p style="color: #b3d9ff;">Real feedback from satisfied customers</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Sarah saved us over $800 a year on our auto and home insurance while actually increasing our coverage. Her attention to detail and personal service is outstanding."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div>
+                            <strong>Mike & Jennifer Rodriguez</strong>
+                            <div style="color: #b3d9ff;">Homeowners</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "When our business needed specialized coverage, Sarah found exactly what we needed at a price that fit our budget. She's been invaluable to our company's risk management."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DC</div>
+                        <div>
+                            <strong>David Chen</strong>
+                            <div style="color: #b3d9ff;">Business Owner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "After my accident, Sarah handled everything with the insurance company. I didn't have to stress about anything - she took care of it all professionally and efficiently."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LW</div>
+                        <div>
+                            <strong>Lisa Williams</strong>
+                            <div style="color: #b3d9ff;">Auto Insurance Client</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Your Free Quote Today</h2>
+                <p>Ready to save money on insurance? Let's discuss your needs</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3 style="color: #1e3c72; margin-bottom: 1.5rem;">Request Your Free Quote</h3>
+                    <div class="privacy-notice">
+                        <strong>Privacy Notice:</strong> Your personal information is protected and will only be used to provide you with insurance quotes and services. We never sell or share your data with third parties for marketing purposes.
+                    </div>
+                    <form id="quoteForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="insurance-type">Insurance Type *</label>
+                            <select id="insurance-type" name="insurance-type" required>
+                                <option value="">Select Insurance Type</option>
+                                <option value="auto">Auto Insurance</option>
+                                <option value="home">Home Insurance</option>
+                                <option value="business">Business Insurance</option>
+                                <option value="life">Life Insurance</option>
+                                <option value="health">Health Insurance</option>
+                                <option value="multiple">Multiple Types</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your current coverage, specific needs, or any questions you have..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" required> I agree to the privacy policy and consent to being contacted about insurance services. *
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Get My Free Quote</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3 style="color: #1e3c72; margin-bottom: 1.5rem;">Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong>
+                            <p>sarah@thompsoninsurance.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Office</strong>
+                            <p>123 Main Street<br>Your City, ST 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div>
+                            <strong>Hours</strong>
+                            <p>Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM<br>24/7 Claims Support</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <h4 style="color: #1e3c72; margin-bottom: 1rem;">Why Choose Independent?</h4>
+                        <p style="color: #666; line-height: 1.6;">As an independent agent, I work for YOU, not the insurance company. I compare rates from multiple carriers to find you the best coverage at the lowest price.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sarah Thompson Insurance</h3>
+                    <p>Your trusted independent insurance advisor, serving individuals and businesses with comprehensive coverage solutions since 2008.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p><a href="#services">Auto Insurance</a></p>
+                    <p><a href="#services">Home Insurance</a></p>
+                    <p><a href="#services">Business Insurance</a></p>
+                    <p><a href="#services">Life Insurance</a></p>
+                    <p><a href="#services">Health Insurance</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#about">About</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                    <p><a href="#" onclick="showPrivacyPolicy()">Privacy Policy</a></p>
+                    <p><a href="#" onclick="showTerms()">Terms of Service</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Licensed States</h3>
+                    <p>California, Nevada, Arizona, Oregon, Washington</p>
+                    <p style="margin-top: 1rem;"><strong>License #:</strong> 0A12345</p>
+                    <p><strong>NPN:</strong> 12345678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sarah Thompson Insurance. All rights reserved. | Licensed Insurance Professional</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Button -->
+    <button class="live-chat" onclick="startLiveChat()">💬 Live Chat</button>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your interest! We\'ll contact you within 24 hours with your personalized quote.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Live chat functionality
+        function startLiveChat() {
+            // In a real implementation, this would open a chat widget
+            alert('Live chat is currently offline. Please call (555) 123-4567 or fill out the contact form for immediate assistance.');
+        }
+
+        // Privacy policy modal
+        function showPrivacyPolicy() {
+            alert('Privacy Policy:\n\nWe are committed to protecting your privacy. Your personal information is collected solely for the purpose of providing insurance quotes and services. We do not sell, rent, or share your personal information with third parties for marketing purposes.\n\nWe use industry-standard security measures to protect your data. For questions about our privacy practices, please contact us at (555) 123-4567.');
+        }
+
+        // Terms of service modal
+        function showTerms() {
+            alert('Terms of Service:\n\nBy using this website and our services, you agree to our terms and conditions. Our insurance advice is provided based on the information you provide. All quotes are estimates and final rates may vary based on underwriting.\n\nWe are licensed insurance professionals committed to providing accurate information and quality service. For complete terms and conditions, please contact our office.');
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.service-card, .testimonial, .contact-item');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Auto-hide mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').style.display = 'none';
+                }
+            });
+        });
+
+        // Form validation enhancement
+        document.querySelectorAll('input[required], select[required]').forEach(field => {
+            field.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = '#ff6b6b';
+                } else {
+                    this.style.borderColor = '#28a745';
+                }
+            });
+        });
+
+        // Email validation
+        document.getElementById('email').addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                this.style.borderColor = '#ff6b6b';
+                this.setCustomValidity('Please enter a valid email address');
+            } else {
+                this.style.borderColor = '#28a745';
+                this.setCustomValidity('');
+            }
+        });
+
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length >= 6) {
+                value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+            } else if (value.length >= 3) {
+                value = value.replace(/(\d{3})(\d{3})/, '($1) $2');
+            }
+            this.value = value.substring(0, 14); // Limit to standard US phone format
+        });
+
+        // Dynamic insurance type field
+        document.getElementById('insurance-type').addEventListener('change', function() {
+            const messageField = document.getElementById('message');
+            const selectedType = this.value;
+            
+            let placeholder = 'Tell us about your current coverage, specific needs, or any questions you have...';
+            
+            switch(selectedType) {
+                case 'auto':
+                    placeholder = 'Please tell us about your vehicles, driving history, current coverage, and any specific needs...';
+                    break;
+                case 'home':
+                    placeholder = 'Please provide details about your home (year built, square footage, current coverage, claims history)...';
+                    break;
+                case 'business':
+                    placeholder = 'Please describe your business type, number of employees, revenue, and current insurance needs...';
+                    break;
+                case 'life':
+                    placeholder = 'Please share information about coverage amount needed, health status, and beneficiaries...';
+                    break;
+                case 'health':
+                    placeholder = 'Please tell us about your healthcare needs, preferred doctors, and current coverage...';
+                    break;
+                case 'multiple':
+                    placeholder = 'Please list all insurance types you need and any specific requirements for each...';
+                    break;
+            }
+            
+            messageField.placeholder = placeholder;
+        });
+
+        // Testimonial rotation (optional enhancement)
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        function rotateTestimonials() {
+            if (testimonials.length > 0 && window.innerWidth <= 768) {
+                testimonials.forEach((testimonial, index) => {
+                    testimonial.style.display = index === currentTestimonial ? 'block' : 'none';
+                });
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            }
+        }
+
+        // Auto-rotate testimonials on mobile every 5 seconds
+        if (window.innerWidth <= 768) {
+            setInterval(rotateTestimonials, 5000);
+        }
+
+        // SEO and accessibility improvements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add alt text to dynamically generated elements
+            const serviceIcons = document.querySelectorAll('.service-icon');
+            const altTexts = [
+                'Auto Insurance Icon',
+                'Home Insurance Icon', 
+                'Business Insurance Icon',
+                'Life Insurance Icon',
+                'Health Insurance Icon',
+                'Umbrella Insurance Icon'
+            ];
+            
+            serviceIcons.forEach((icon, index) => {
+                icon.setAttribute('role', 'img');
+                icon.setAttribute('aria-label', altTexts[index] || 'Insurance Service Icon');
+            });
+
+            // Improve keyboard navigation
+            const focusableElements = document.querySelectorAll('a, button, input, select, textarea');
+            focusableElements.forEach(el => {
+                el.addEventListener('focus', function() {
+                    this.style.outline = '2px solid #1e3c72';
+                    this.style.outlineOffset = '2px';
+                });
+                
+                el.addEventListener('blur', function() {
+                    this.style.outline = 'none';
+                });
+            });
+        });
+
+        // Performance optimization - lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Analytics tracking (placeholder for Google Analytics or similar)
+        function trackEvent(eventName, eventData) {
+            // In a real implementation, this would send data to your analytics service
+            console.log('Analytics Event:', eventName, eventData);
+        }
+
+        // Track form interactions
+        document.getElementById('quoteForm').addEventListener('submit', function() {
+            trackEvent('form_submission', {
+                form_type: 'quote_request',
+                insurance_type: document.getElementById('insurance-type').value
+            });
+        });
+
+        // Track button clicks
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                trackEvent('button_click', {
+                    button_text: this.textContent.trim(),
+                    button_type: this.classList.contains('btn-primary') ? 'primary' : 'secondary'
+                });
+            });
+        });
+
+        // Cookie consent (basic implementation)
+        function showCookieConsent() {
+            if (!localStorage.getItem('cookieConsent')) {
+                const consent = confirm('This website uses cookies to improve your experience and provide personalized insurance quotes. Do you accept our use of cookies?');
+                if (consent) {
+                    localStorage.setItem('cookieConsent', 'accepted');
+                } else {
+                    localStorage.setItem('cookieConsent', 'declined');
+                }
+            }
+        }
+
+        // Show cookie consent on page load
+        setTimeout(showCookieConsent, 2000);
+    </script>
+</body>
+</html>
